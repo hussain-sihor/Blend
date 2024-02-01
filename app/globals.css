@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
 /* primary    #131324     */
-/* secondary    #4e0eff     */
-/* tertiary    slate-200    */
+/* secondary    slate-200    */
+/* tertiary    #4e0eff     */
+
+.content {
+	height: calc(100% - 7vh);
+	width: 100%;
+	background-color: aqua;
+}

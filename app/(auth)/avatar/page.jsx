@@ -35,7 +35,7 @@ const profilePage = () => {
 				avatar: avatars[isSelected],
 			});
 			if (result.status == 200) {
-				toast.success("Avtar saved successfully", toastOptions);
+				toast.success("Avatar saved successfully", toastOptions);
 				router.push("/chats");
 			} else {
 				toast.error("Failed to set avatar", toastOptions);
