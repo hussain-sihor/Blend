@@ -1,3 +1,5 @@
+//api/chats
+// for generating chat account between currentUser and a member
 import Chat from "@/models/Chat";
 import User from "@/models/User";
 import { connectDB } from "@/mongodb";
@@ -13,20 +15,21 @@ export const POST = async (req) => {
 		if (!chat) {
 			chat = await new Chat({
 				members: [currentUserId, member],
-				//createdAt updatedAt will be given by default
-				//messages[] will be updated later
 			});
 
 			await chat.save();
 
 			//giving chatId to each users
-			await User.findByIdAndUpdate(
-				currentUserId,
-				{
-					$addToSet: { chats: chat._id },
-				},
-				{ new: true }
-			);
+			const updateChatId = chat.members.map(async (memberId) => {
+				await User.findByIdAndUpdate(
+					memberId,
+					{
+						$addToSet: { chats: chat._id },
+					},
+					{ new: true }
+				);
+			});
+			Promise.all(updateChatId);
 		}
 		return new Response(JSON.stringify(chat), { status: 201 });
 	} catch (error) {

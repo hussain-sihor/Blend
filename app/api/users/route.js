@@ -1,4 +1,5 @@
 //api/users
+//to get all users for displaying chats
 import User from "@/models/User";
 import { connectDB } from "@/mongodb";
 

@@ -12,7 +12,7 @@ export const POST = async (req, res) => {
 			return new Response("User already exists", { status: 400 });
 		}
 		const hashedPassword = await hash(password, 10);
-		//creating new user (chats[],profile) will be saved after
+		//creating new user (chats[],profile) will be saved after login
 		const newUser = await User.create({
 			username,
 			email,

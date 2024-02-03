@@ -1,3 +1,5 @@
+//api/searchContatc/query
+// for seacrhing contacts based on query provided
 import User from "@/models/User";
 import { connectDB } from "@/mongodb";
 

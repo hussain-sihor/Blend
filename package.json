@@ -12,6 +12,7 @@
 		"axios": "^1.6.7",
 		"bcryptjs": "^2.4.3",
 		"buffer": "^6.0.3",
+		"date-fns": "^3.3.1",
 		"mongoose": "^8.1.1",
 		"next": "14.0.4",
 		"next-auth": "^4.24.5",

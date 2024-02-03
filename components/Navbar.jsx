@@ -27,7 +27,7 @@ const Navbar = () => {
 					<Link href={"/profile"}>
 						<img
 							src={`data:image/svg+xml;base64,${avatar}`}
-							className="w-[6vh]"
+							className="w-[3vw] rounded-full h-[3vw] flex justify-center items-center"
 						/>
 					</Link>
 				</div>

@@ -1,3 +1,5 @@
+//api/profile/userId
+// for updating user profile
 import User from "@/models/User";
 
 export const POST = async (req, { params }) => {

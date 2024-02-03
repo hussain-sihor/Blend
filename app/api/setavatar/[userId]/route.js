@@ -1,3 +1,5 @@
+//api/setavatar/userId
+// for setting an avatar of currentUser
 import User from "@/models/User";
 import { connectDB } from "@/mongodb";
 

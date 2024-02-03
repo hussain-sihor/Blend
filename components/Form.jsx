@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
+
 const Form = ({ type }) => {
 	const router = useRouter();
 	//customizing toast for using here
@@ -38,7 +39,10 @@ const Form = ({ type }) => {
 				console.log(res);
 			}
 			if (res.error) {
-				toast.error(res.error, toastOptions);
+				toast.error(
+					"Failed to perform operation. Try again in sometime...",
+					toastOptions
+				);
 				console.log(res.error);
 			}
 		}
