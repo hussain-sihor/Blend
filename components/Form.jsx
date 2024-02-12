@@ -63,21 +63,23 @@ const Form = ({ type }) => {
 	};
 	return (
 		<div className="w-full h-screen flex justify-center items-center">
-			<div className="w-[45vw] h-[65vh] flex justify-center items-center  py-5  flex-col gap-5 bg-slate-200 rounded-xl">
+			<div className="w-[45vw] h-[65vh] flex justify-center items-center  py-5  flex-col gap-5 bg-[#d8ecfc] rounded-xl shadow-[#6a6ab9] shadow-md max-sm:w-[80%] max-sm:h-[55vh]">
 				<div className="flex justify-center gap-3 items-center w-full">
 					<img src="/assets/messenger.png" alt="logo" className="w-[5vw]" />
-					<h3 className="text-xl font-Righteous font-semibold">Blend</h3>
+					<h3 className="text-xl font-Righteous font-semibold max-sm:text-lg">
+						Blend
+					</h3>
 				</div>
 
 				<form
 					//handelSubmit funct from react-hook-form which needs userdefined function
 					onSubmit={handleSubmit(onSubmit)}
-					className="w-full flex flex-col gap-[5vh] justify-center"
+					className="w-full flex flex-col gap-[5vh] max-sm:gap-4 justify-center"
 				>
 					{/* displaying Username based on type  */}
 					{type === "register" && (
 						<div className="">
-							<div className="flex justify-center gap-3 items-center">
+							<div className="flex justify-center gap-3  items-center">
 								<input
 									defaultValue=""
 									//performing validation (register function is inbuild with react-hook-form) in which performing validation on username
@@ -91,13 +93,13 @@ const Form = ({ type }) => {
 									})}
 									type="text"
 									placeholder="Enter username"
-									className="p-3 w-[50%] h-[5vh] bg-transparent outline-dashed"
+									className="p-3 w-[50%] h-[5vh] bg-transparent outline-dashed max-sm:w-[60%]"
 								></input>
 								<FaUser className="text-lg" />
 							</div>
 							{/* displaying error if present */}
 							{errors.username && (
-								<p className="text-red-600 text-center">
+								<p className="text-red-600 text-center max-sm:text-sm">
 									{errors.username.message}
 								</p>
 							)}
@@ -111,13 +113,13 @@ const Form = ({ type }) => {
 								{...register("email", { required: "Email is required" })}
 								type="email"
 								placeholder="Enter email"
-								className=" p-3 w-[50%] h-[5vh] bg-transparent outline-dashed"
+								className=" p-3 w-[50%] h-[5vh] bg-transparent outline-dashed max-sm:w-[60%]"
 							></input>
 							<MdEmail className="text-lg" />
 						</div>
 
 						{errors.email && (
-							<p className="text-red-600  text-center">
+							<p className="text-red-600  text-center max-sm:text-sm">
 								{errors.email.message}
 							</p>
 						)}
@@ -137,19 +139,19 @@ const Form = ({ type }) => {
 								})}
 								type="password"
 								placeholder="Enter password"
-								className="p-3 w-[50%] h-[5vh] bg-transparent outline-dashed"
+								className="p-3 w-[50%] h-[5vh] bg-transparent outline-dashed max-sm:w-[60%]"
 							></input>
 							<RiLockPasswordFill className="text-lg" />
 						</div>
 						{errors.password && (
-							<p className="text-red-600  text-center">
+							<p className="text-red-600  text-center max-sm:text-sm">
 								{errors.password.message}
 							</p>
 						)}
 					</div>
 					{/* Button  */}
 					<div className="flex justify-center items-center gap-3">
-						<button className="px-4 py-2 w-[30%] bg-[#131324] text-lg text-slate-200 rounded-md font-semibold">
+						<button className="px-4 py-2 w-[30%] bg-[#6a6ab9] text-lg text-slate-200 rounded-md font-semibold max-sm:w-[40%] max-sm:text-md max-sm:px-2">
 							{type === "login" ? "Lets go" : "Join now"}
 						</button>
 					</div>
@@ -160,12 +162,16 @@ const Form = ({ type }) => {
 					{type === "login" ? (
 						<a href="/register">
 							Don't have an account?{" "}
-							<span className="text-[#4e0eff] font-bold">Register Here</span>
+							<span className="text-[#4e0eff] font-bold max-sm:text-sm">
+								Register Here
+							</span>
 						</a>
 					) : (
 						<a href="/">
 							Already have an account?{" "}
-							<span className="text-[#4e0eff] font-bold">Sign In Here</span>
+							<span className="text-[#4e0eff] font-bold max-sm:text-sm">
+								Sign In Here
+							</span>
 						</a>
 					)}
 				</div>

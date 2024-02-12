@@ -7,18 +7,18 @@ const ContactBox = ({ currentUser, user, index, createChat }) => {
 			onClick={() => {
 				createChat(user);
 			}}
-			className="flex justify-start bg-slate-200 items-center rounded-lg 
-      shadow-lg shadow-slate-800 px-2 py-1"
+			className="flex justify-start bg-[#d8ecfc] items-center rounded-lg 
+      shadow-md shadow-[#131324] px-2 py-1 max-sm:py-2"
 		>
-			<div className="w-[4vw] h-[4vw] ">
+			<div className="w-[4vw] h-[4vw] max-sm:w-[10vw] max-sm:h-[10vw] flex justify-center items-center">
 				<img
-					className="w-[4vw] rounded-full h-[4vw] flex justify-center items-center"
+					className="w-[4vw] rounded-full h-[4vw] flex justify-center items-center max-sm:w-[8vw] max-sm:h-[8vw]"
 					src={`data:image/svg+xml;base64,${user?.avatar}`}
 					alt=""
 				/>
 			</div>
 			<div className=" w-full ml-[1vw]">
-				<h3 className="font-semibold text-xl text-neutral-800 cursor-default">
+				<h3 className="font-semibold text-xl text-[#131324]  cursor-default">
 					{username}
 				</h3>
 			</div>

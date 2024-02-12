@@ -1,14 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
-/* primary    #131324     */
-/* secondary    slate-200    */
-/* tertiary    #4e0eff     */
-
-.content {
-	height: calc(100% - 7vh);
-	width: 100%;
-	background-color: aqua;
+@import url("https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap");
+@layer utilities {
+	/* Hide scrollbar for Chrome, Safari and Opera */
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	/* Hide scrollbar for IE, Edge and Firefox */
+	.no-scrollbar {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
 }
+/* primary    #131324     */
+/* secondary    #6a6ab9   */
+/* tertiary    #dfebf5    */
+
+/* #27374D
+#526D82
+#9DB2BF
+#dfebf5
+ */

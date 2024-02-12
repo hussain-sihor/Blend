@@ -1,5 +1,6 @@
 //to get al chats of a user
 import Chat from "@/models/Chat";
+import Message from "@/models/Message";
 import User from "@/models/User";
 import { connectDB } from "@/mongodb";
 
@@ -14,6 +15,10 @@ export const GET = async (req, { params }) => {
 			.populate({
 				path: "members",
 				model: User,
+			})
+			.populate({
+				path: "messages",
+				model: Message,
 			})
 			.exec();
 
