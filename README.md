@@ -43,16 +43,8 @@ To get started with Blend Chat App, follow these steps:
 
    This will launch the Blend Chat App on your local environment.
 
-## Issues
-
-If you encounter any issues or have suggestions for improvement, please feel free to [open an issue](https://github.com/your-username/blend-chat-app/issues).
-
-## License
-
-Blend Chat App is licensed under the [MIT License](LICENSE).
-
 ## Contact
 
-If you have any questions or need further assistance, you can reach us at blendchat@example.com.
+If you have any questions or need further assistance, you can reach us at sihorwalahussain@example.com.
 
 Happy chatting with Blend Chat App! 🚀
