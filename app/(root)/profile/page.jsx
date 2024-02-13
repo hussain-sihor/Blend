@@ -17,6 +17,9 @@ const ProfilePage = () => {
 	const { data: session } = useSession();
 	const user = session?.user;
 	const [currentAvatar, setCurrentAvatar] = useState();
+	if (!user) {
+		return;
+	}
 	const time = format(new Date(user?.createdAt), "dMMM-y");
 	const {
 		register,
