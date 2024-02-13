@@ -45,6 +45,6 @@ To get started with Blend Chat App, follow these steps:
 
 ## Contact
 
-If you have any questions or need further assistance, you can reach us at sihorwalahussain@example.com.
+If you have any questions or need further assistance, you can reach us at sihorwalahussain@gmail.com.
 
 Happy chatting with Blend Chat App! 🚀
