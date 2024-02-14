@@ -39,10 +39,7 @@ const Form = ({ type }) => {
 				console.log(res);
 			}
 			if (res.error) {
-				toast.error(
-					"Failed to perform operation. Try again in sometime...",
-					toastOptions
-				);
+				toast.error(res.error, toastOptions);
 				console.log(res.error);
 			}
 		}

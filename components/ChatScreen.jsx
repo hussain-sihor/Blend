@@ -191,7 +191,7 @@ const ChatScreen = ({ chatId }) => {
 						}}
 						type="text"
 						placeholder="Write a message..."
-						className="w-full border-none py-3 px-6 outline-none rounded-lg bg-[#d8ecfc] max-sm:py-1 "
+						className="w-full border-none py-3 px-6 outline-none rounded-lg bg-[#d8ecfc] max-sm:py-1 max-sm:px-2"
 					/>
 				</div>
 

@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 const Contact = ({ chat, index, currentUser, chatId }) => {
 	const router = useRouter();
+	console.log(chat);
 
 	const otherMember = chat?.members?.filter(
 		(member) => member._id !== currentUser._id
@@ -14,7 +15,11 @@ const Contact = ({ chat, index, currentUser, chatId }) => {
 	const seen = lastMessage?.isSeen;
 
 	const data = otherMember[0]?.username;
-	const username = data[0].toUpperCase() + data.slice(1);
+	let username = "";
+	if (data) {
+		username = data[0].toUpperCase() + data.slice(1);
+	}
+
 	const seenMsg = async () => {
 		if (lastMessage && lastMessage.sender !== currentUser._id) {
 			const result = await axios.post(`/api/messages/${lastMessage._id}`);
@@ -60,7 +65,7 @@ const Contact = ({ chat, index, currentUser, chatId }) => {
 							<p className="font-medium cursor-default">You recieved a photo</p>
 						)
 					) : (
-						<p className="font-medium cursor-default overflow-hidden max-w-[15vw]  h-7">
+						<p className="font-medium cursor-default overflow-hidden w-[15vw]  h-7 max-sm:w-[45vw]">
 							{lastMessage?.text}
 						</p>
 					)}
