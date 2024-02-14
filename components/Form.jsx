@@ -36,11 +36,9 @@ const Form = ({ type }) => {
 			if (res.ok) {
 				toast.success("Sign In Successfully", toastOptions);
 				router.push("/avatar");
-				console.log(res);
 			}
 			if (res.error) {
 				toast.error(res.error, toastOptions);
-				console.log(res.error);
 			}
 		}
 

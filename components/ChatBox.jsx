@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 const Contact = ({ chat, index, currentUser, chatId }) => {
 	const router = useRouter();
-	console.log(chat);
 
 	const otherMember = chat?.members?.filter(
 		(member) => member._id !== currentUser._id

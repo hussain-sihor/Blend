@@ -39,7 +39,6 @@ const ChatScreen = ({ chatId }) => {
 		if ((result.status = 201)) {
 			setText("");
 		}
-		console.log("result", result.data);
 	};
 
 	const sendPhoto = async (result) => {

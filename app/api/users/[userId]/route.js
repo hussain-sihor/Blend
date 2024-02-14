@@ -9,7 +9,6 @@ export const GET = async (req, { params }) => {
 		await connectDB();
 
 		const { userId } = await params;
-		// console.log(params);
 		const allChats = await Chat.find({ members: userId })
 			.sort({ lastMessageAt: -1 })
 			.populate({
