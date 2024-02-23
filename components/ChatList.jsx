@@ -29,7 +29,8 @@ const ChatList = ({ chatId }) => {
 	const getUsers = async () => {
 		//   getting user based on if searched or normally all users
 		const Users = await axios.get(
-			search !== "" ? `/api/searchContact/${search}` : "/api/users"
+			search !== "" ? `/api/searchContact/${search}` : "/api/users",
+			{ cache: "no-store" }
 		);
 		if (Users.status == 201) {
 			const data = await Users.data;
@@ -37,7 +38,9 @@ const ChatList = ({ chatId }) => {
 			setContacts(data.filter((contact) => contact._id !== currentUser._id));
 		}
 		//   getting chats of currentUser
-		const Chats = await axios.get(`/api/users/${currentUser._id}`);
+		const Chats = await axios.get(`/api/users/${currentUser._id}`, {
+			cache: "no-store",
+		});
 		setChats(Chats.data);
 	};
 
