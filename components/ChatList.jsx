@@ -29,10 +29,14 @@ const ChatList = ({ chatId }) => {
 
 	const getUsers = async () => {
 		//   getting user based on if searched or normally all users
-		const Users = await axios.get(
-			search !== "" ? `/api/searchContact/${search}` : "/api/users",
-			{ cache: "no-store" }
-		);
+		let Users;
+		if (search !== "") {
+			Users = await axios.get("/api/searchContact/${search}", {
+				cache: "no-store",
+			});
+		} else {
+			Users = await axios.get("/api/users", { cache: "no-store" });
+		}
 		if (Users.status == 201) {
 			const data = await Users.data;
 			//filtering out current user

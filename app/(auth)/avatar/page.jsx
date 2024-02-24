@@ -44,10 +44,10 @@ const profilePage = () => {
 	};
 	useEffect(() => {
 		// if user visits again
-		// if (user?.avatar) {
-		// 	router.push("/chats");
-		// 	return;
-		// }
+		if (user?.avatar) {
+			router.push("/chats");
+			return;
+		}
 		const getImages = async () => {
 			const data = [];
 			//needed 4 avatars to display
