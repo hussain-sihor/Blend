@@ -31,6 +31,9 @@ const ChatScreen = ({ chatId }) => {
 	};
 
 	const sendMsg = async () => {
+		if (text == "") {
+			return;
+		}
 		const result = await axios.post("/api/messages", {
 			chatId,
 			currentUserId: currentUser._id,
@@ -43,7 +46,7 @@ const ChatScreen = ({ chatId }) => {
 
 	const sendPhoto = async (result) => {
 		try {
-			const res = axios.post("/api/messages", {
+			const res = await axios.post("/api/messages", {
 				chatId,
 				currentUserId: currentUser._id,
 				photo: result?.info?.secure_url,
@@ -115,12 +118,12 @@ const ChatScreen = ({ chatId }) => {
 							src={`data:image/svg+xml;base64,${otherMember[0]?.avatar}`}
 						/>
 					</div>
-					<h3 className="font-bold text-lg text-[#d8ecfc] cursor-default max-sm:text-md">
+					<h3 className="font-bold text-lg text-[#dce6ee] cursor-default max-sm:text-md">
 						{username}
 					</h3>
 				</div>
 				{/* Messages  */}
-				<div className=" bg-[#d8ecfc] flex flex-col gap-8 p-4 overflow-y-scroll h-[75vh] mr-4 rounded-lg no-scrollbar max-sm:m-0 max-sm:rounded-sm z-0">
+				<div className=" bg-[#dce6ee] flex flex-col gap-8 p-4 overflow-y-scroll h-[75vh] mr-4 rounded-lg no-scrollbar max-sm:m-0 max-sm:rounded-sm z-0">
 					{chat?.messages?.map((message, index) => (
 						<MessageBox
 							key={index}
@@ -170,13 +173,13 @@ const ChatScreen = ({ chatId }) => {
 						onUpload={sendPhoto}
 						uploadPreset="hnurtglq"
 					>
-						<IoImages className="text-[#d8ecfc]" />
+						<IoImages className="text-[#dce6ee]" />
 					</CldUploadButton>
 				</div>
 				{/* Emoji  */}
 				<div className=" h-full text-2xl flex justify-center items-center rounded-full max-sm:text-xl">
 					<BsEmojiHeartEyesFill
-						className="text-[#d8ecfc] cursor-pointer"
+						className="text-[#dce6ee] cursor-pointer"
 						onClick={handleEmojiPicker}
 					/>
 				</div>
@@ -190,7 +193,7 @@ const ChatScreen = ({ chatId }) => {
 						}}
 						type="text"
 						placeholder="Write a message..."
-						className="w-full border-none py-3 px-6 outline-none rounded-lg bg-[#d8ecfc] max-sm:py-1 max-sm:px-2"
+						className="w-full border-none py-3 px-6 outline-none rounded-lg bg-[#dce6ee] max-sm:py-1 max-sm:px-2"
 					/>
 				</div>
 
@@ -199,7 +202,7 @@ const ChatScreen = ({ chatId }) => {
 					className=" h-full text-2xl flex justify-center items-center rounded-full max-sm:text-xl "
 					onClick={sendMsg}
 				>
-					<TbSend className="text-[#d8ecfc] cursor-pointer" />
+					<TbSend className="text-[#dce6ee] cursor-pointer" />
 				</div>
 			</div>
 		</div>

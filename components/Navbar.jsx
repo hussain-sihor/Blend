@@ -22,7 +22,7 @@ const Navbar = () => {
 			{/* Logo  */}
 			<div className="flex justify-center items-center gap-2">
 				<img src="/assets/messenger.png" alt="logo" className="w-[6vh]" />
-				<h3 className="text-xl font-Protest-Guerrilla font-bold text-[#d8ecfc]">
+				<h3 className="text-xl font-Protest-Guerrilla font-bold text-[#dce6ee]">
 					Blend
 				</h3>
 			</div>

@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import ChatBox from "@/components/ChatBox";
 import ContactBox from "@/components/ContactBox";
 import { useRouter } from "next/navigation";
+import { pusherClient } from "@/lib/pusher";
 
 const ChatList = ({ chatId }) => {
 	const router = useRouter();
@@ -50,6 +51,31 @@ const ChatList = ({ chatId }) => {
 		}
 	}, [currentUser, search]);
 
+	useEffect(() => {
+		if (currentUser) {
+			pusherClient.subscribe(currentUser._id);
+
+			const handleChatUpdate = (updatedChat) => {
+				setChats((prevChats) =>
+					prevChats.map((chat) => {
+						if (chat._id === updatedChat.id) {
+							return { ...chat, messages: updatedChat.messages };
+						} else {
+							return chat;
+						}
+					})
+				);
+			};
+
+			pusherClient.bind("updated-chat", handleChatUpdate);
+
+			return () => {
+				pusherClient.unsubscribe(currentUser._id);
+				pusherClient.unbind("updated-chat", handleChatUpdate);
+			};
+		}
+	}, [currentUser]);
+
 	return (
 		<div className="w-[30vw] h-[92vh] flex justify-center items-center  flex-col bg-[#131324] max-sm:w-full">
 			<div className="  flex justify-start w-[95%] h-[95%] bg-[#6a6ab9]  flex-col px-4 rounded-lg shadow-sm shadow-slate-700 overflow-y-scroll py-6 no-scrollbar max-sm:rounded-xl">
@@ -60,7 +86,7 @@ const ChatList = ({ chatId }) => {
 					}}
 					type="text"
 					placeholder="Search contacts"
-					className="px-6 py-3 bg-[#d8ecfc] rounded-md shadow-md shadow-[#131324] max-sm:py-2"
+					className="px-6 py-3 bg-[#dce6ee] rounded-md shadow-md shadow-[#131324] max-sm:py-2"
 				/>
 
 				{/*          displaying chats         */}

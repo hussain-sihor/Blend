@@ -7,7 +7,7 @@ const ContactBox = ({ currentUser, user, index, createChat }) => {
 			onClick={() => {
 				createChat(user);
 			}}
-			className="flex justify-start bg-[#d8ecfc] items-center rounded-lg 
+			className="flex justify-start bg-[#dce6ee] items-center rounded-lg 
       shadow-md shadow-[#131324] px-2 py-1 max-sm:py-2"
 		>
 			<div className="w-[4vw] h-[4vw] max-sm:w-[10vw] max-sm:h-[10vw] flex justify-center items-center">

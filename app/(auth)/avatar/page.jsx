@@ -44,10 +44,10 @@ const profilePage = () => {
 	};
 	useEffect(() => {
 		// if user visits again
-		if (user?.avatar) {
-			router.push("/chats");
-			return;
-		}
+		// if (user?.avatar) {
+		// 	router.push("/chats");
+		// 	return;
+		// }
 		const getImages = async () => {
 			const data = [];
 			//needed 4 avatars to display
@@ -65,13 +65,11 @@ const profilePage = () => {
 	}, []);
 	return (
 		<div className="w-full h-screen flex flex-col justify-center items-center text-[#131324]">
-			<div
-				className="w-[50vw] h-[60vh] flex flex-col justify-center items-center bg-[#d8ecfc] gap-[3.5vh] rounded-xl shadow-lg shadow-[#6a6ab9] ring-offset-[#6a6ab9] ring-2 max-sm:w-[85%]
-			max-sm:h-[50vh] max-sm:gap-5"
-			>
-				<div className="font-bold text-2xl max-sm:text-lg">
-					<h3>
-						<span className="text-[#6a6ab9]">{username}</span> select an Avatar
+			<div className="w-[50vw] h-[60vh] flex flex-col justify-center items-center bg-[#dce6ee] gap-[3.5vh] rounded-xl shadow-lg shadow-[#6a6ab9] ring-offset-[#6a6ab9] ring-2 max-sm:w-[85%] max-sm:h-[50vh] max-sm:gap-6">
+				<div>
+					<h3 className="font-bold text-2xl max-sm:text-lg">
+						<span className="text-[#6a6ab9] fontt-bold ">{username}</span>{" "}
+						select an Avatar
 					</h3>
 				</div>
 				<div className="flex gap-[2vw] max-sm:gap-3">
@@ -90,7 +88,7 @@ const profilePage = () => {
 										setIsSelected(index);
 									}}
 									//changing size dynamically based on selected or not
-									className={` rounded-full border-[6px] shadow-lg border-opacity-5 border-slate-900 shadow-[#131324] ${
+									className={` rounded-full border-[6px] shadow-lg border-opacity-5 border-slate-900 shadow-[#131324] max-sm:border-2 ${
 										isSelected === index
 											? "w-[10vw] h-[10vw] max-sm:w-[17vw] max-sm:h-[17vw]"
 											: "w-[9vw] h-[9vw] max-sm:w-[15vw] max-sm:h-[15vw]"
@@ -102,8 +100,8 @@ const profilePage = () => {
 				</div>
 				<button
 					onClick={setProfile}
-					className="px-4 py-2 w-[30%] bg-[#6a6ab9] text-lg text-slate-200 rounded-lg font-semibold
-					 max-sm:w-[50%] max-sm:py-1 max-sm:text-md"
+					className="px-4 py-2 w-[30%] bg-[#6a6ab9] text-lg text-[#131324] rounded-lg font-semibold
+					 max-sm:w-[35%] max-sm:py-1 max-sm:text-sm"
 				>
 					Save
 				</button>

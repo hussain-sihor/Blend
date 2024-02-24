@@ -58,9 +58,13 @@ const Form = ({ type }) => {
 	};
 	return (
 		<div className="w-full h-screen flex justify-center items-center">
-			<div className="w-[45vw] h-[65vh] flex justify-center items-center  py-5  flex-col gap-5 bg-[#d8ecfc] rounded-xl shadow-[#6a6ab9] shadow-md max-sm:w-[80%] max-sm:h-[55vh]">
-				<div className="flex justify-center gap-3 items-center w-full">
-					<img src="/assets/messenger.png" alt="logo" className="w-[5vw]" />
+			<div className="w-[45vw] h-[65vh] flex justify-center items-center  py-5  flex-col gap-5 bg-[#dce6ee] rounded-xl shadow-[#6a6ab9] shadow-md max-sm:w-[80%] max-sm:h-[55vh] ">
+				<div className="flex justify-center gap-3 items-center w-full max-sm:gap-1">
+					<img
+						src="/assets/messenger.png"
+						alt="logo"
+						className="w-[5vw] max-sm:w-[6vw]"
+					/>
 					<h3 className="text-xl font-Righteous font-semibold max-sm:text-lg">
 						Blend
 					</h3>
@@ -69,7 +73,7 @@ const Form = ({ type }) => {
 				<form
 					//handelSubmit funct from react-hook-form which needs userdefined function
 					onSubmit={handleSubmit(onSubmit)}
-					className="w-full flex flex-col gap-[5vh] max-sm:gap-4 justify-center"
+					className="w-full flex flex-col gap-[5vh] max-sm:gap-5 justify-center max-sm:ml-4"
 				>
 					{/* displaying Username based on type  */}
 					{type === "register" && (
@@ -88,9 +92,9 @@ const Form = ({ type }) => {
 									})}
 									type="text"
 									placeholder="Enter username"
-									className="p-3 w-[50%] h-[5vh] bg-transparent outline-dashed max-sm:w-[60%]"
+									className="p-3 w-[50%] h-[5vh] bg-transparent outline-dashed max-sm:w-[60%] max-sm:outline-2"
 								></input>
-								<FaUser className="text-lg" />
+								<FaUser className="text-lg max-sm:text-sm" />
 							</div>
 							{/* displaying error if present */}
 							{errors.username && (
@@ -108,9 +112,9 @@ const Form = ({ type }) => {
 								{...register("email", { required: "Email is required" })}
 								type="email"
 								placeholder="Enter email"
-								className=" p-3 w-[50%] h-[5vh] bg-transparent outline-dashed max-sm:w-[60%]"
+								className=" p-3 w-[50%] h-[5vh] bg-transparent outline-dashed max-sm:w-[60%] max-sm:outline-2"
 							></input>
-							<MdEmail className="text-lg" />
+							<MdEmail className="text-lg max-sm:text-sm" />
 						</div>
 
 						{errors.email && (
@@ -134,9 +138,9 @@ const Form = ({ type }) => {
 								})}
 								type="password"
 								placeholder="Enter password"
-								className="p-3 w-[50%] h-[5vh] bg-transparent outline-dashed max-sm:w-[60%]"
+								className="p-3 w-[50%] h-[5vh] bg-transparent outline-dashed max-sm:w-[60%] max-sm:outline-2"
 							></input>
-							<RiLockPasswordFill className="text-lg" />
+							<RiLockPasswordFill className="text-lg max-sm:text-sm" />
 						</div>
 						{errors.password && (
 							<p className="text-red-600  text-center max-sm:text-sm">
@@ -146,7 +150,7 @@ const Form = ({ type }) => {
 					</div>
 					{/* Button  */}
 					<div className="flex justify-center items-center gap-3">
-						<button className="px-4 py-2 w-[30%] bg-[#6a6ab9] text-lg text-slate-200 rounded-md font-semibold max-sm:w-[40%] max-sm:text-md max-sm:px-2">
+						<button className="px-4 py-2 w-[30%] bg-[#8585ff] text-lg text-[#131324] rounded-md font-semibold max-sm:w-[30%] max-sm:text-sm max-sm:px-0">
 							{type === "login" ? "Lets go" : "Join now"}
 						</button>
 					</div>
@@ -157,14 +161,14 @@ const Form = ({ type }) => {
 					{type === "login" ? (
 						<a href="/register">
 							Don't have an account?{" "}
-							<span className="text-[#4e0eff] font-bold max-sm:text-sm">
+							<span className="text-[#4e0eff] font-bold max-sm:text-sm flex-wrap">
 								Register Here
 							</span>
 						</a>
 					) : (
 						<a href="/">
 							Already have an account?{" "}
-							<span className="text-[#4e0eff] font-bold max-sm:text-sm">
+							<span className="text-[#4e0eff] font-bold max-sm:text-sm flex-wrap">
 								Sign In Here
 							</span>
 						</a>

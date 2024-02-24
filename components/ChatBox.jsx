@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { format } from "date-fns";
 import { useRouter } from "next/navigation";
 import axios from "axios";
@@ -12,6 +11,8 @@ const Contact = ({ chat, index, currentUser, chatId }) => {
 	const lastMessage =
 		chat?.messages?.length > 0 && chat?.messages[chat?.messages.length - 1];
 	const seen = lastMessage?.isSeen;
+
+	console.log("Mast", lastMessage.sender, currentUser._id, lastMessage.text);
 
 	const data = otherMember[0]?.username;
 	let username = "";
@@ -35,7 +36,7 @@ const Contact = ({ chat, index, currentUser, chatId }) => {
 				seenMsg();
 			}}
 			className={`flex justify-between items-center rounded-lg shadow-md shadow-[#131324] px-2 py-1  ${
-				chat._id == chatId ? "bg-[#98b6cf]" : "bg-[#d8ecfc]"
+				chat._id == chatId ? "bg-[#98b6cf]" : "bg-[#dce6ee]"
 			} `}
 		>
 			<div className="flex justify-center items-center gap-3">
@@ -58,7 +59,7 @@ const Contact = ({ chat, index, currentUser, chatId }) => {
 							Hii there lets get started
 						</p>
 					) : lastMessage?.photo ? (
-						lastMessage?.sender == currentUser._id ? (
+						lastMessage.sender === currentUser._id ? (
 							<p className="font-medium cursor-default">You sent a photo</p>
 						) : (
 							<p className="font-medium cursor-default">You recieved a photo</p>
@@ -76,9 +77,8 @@ const Contact = ({ chat, index, currentUser, chatId }) => {
 				{!lastMessage
 					? format(new Date(chat?.createdAt), "p")
 					: format(new Date(chat?.lastMessageAt), "p")}
-
 				{!seen && lastMessage && lastMessage.sender !== currentUser._id && (
-					<div className="w-[9px] h-[9px] bg-green-500 rounded-full"></div>
+					<div className="w-[9px] h-[9px] bg-green-500 rounded-full" />
 				)}
 			</div>
 		</div>

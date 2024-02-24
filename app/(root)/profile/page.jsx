@@ -2,7 +2,7 @@
 import { useSession } from "next-auth/react";
 import React, { useEffect, useState } from "react";
 import { TbRefresh } from "react-icons/tb";
-import { GrRevert } from "react-icons/gr";
+import { IoArrowBackSharp } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { useRouter } from "next/navigation";
@@ -68,16 +68,16 @@ const ProfilePage = () => {
 	};
 	return (
 		<div className="w-full   flex justify-center items-center bg-[#131324] h-[92vh] ">
-			<div className="w-[70vw] h-[65vh] flex justify-center items-center shadow-md bg-[#6a6ab9] shadow-[#d8ecfc]  rounded-2xl max-sm:flex-col max-sm:w-[80vw] max-sm:h-[80vh]">
+			<div className="w-[70vw] h-[65vh] flex justify-center items-center shadow-md bg-[#dce6ee] shadow-[#131324]  rounded-2xl max-sm:flex-col max-sm:w-[80vw] max-sm:h-[80vh]">
 				{/* first block  */}
-				<div className="w-[50%] h-[60vh] flex flex-col justify-center pt-4 items-center gap-8 max-sm:w-full">
-					<div className="text-xl font-bold text-[#d8ecfc] max-sm:block hidden ">
+				<div className="w-[50%] h-[60vh] flex flex-col justify-center pt-4 items-center gap-8 max-sm:w-full max-sm:h-[38vh] max-sm:gap-5">
+					<div className="text-xl font-bold text-[#131324] max-sm:block hidden ">
 						<h3>Edit Your Profile</h3>
 					</div>
 					<div>
 						<img
 							src={`data:image/svg+xml;base64,${currentAvatar}`}
-							className="w-[25vh] rounded-full shadow-lg shadow-slate-800 border-[8px] border-[#d8ecfc] border-opacity-70 max-sm:w-[25vw] max-sm:border-4"
+							className="w-[25vh] rounded-full shadow-lg shadow-slate-800 border-[8px] border-[#dce6ee] border-opacity-70 max-sm:w-[25vw] max-sm:border-4"
 						/>
 					</div>
 					{/* new avatar  */}
@@ -85,31 +85,31 @@ const ProfilePage = () => {
 						<div className="bg-[#131324] py-2 px-4 rounded-md max-sm:py-1 max-sm:px-2 flex justify-center items-center">
 							<TbRefresh
 								onClick={changeAvatar}
-								className="text-slate-200 font-semibold text-xl cursor-pointer"
+								className="text-[#dce6ee] font-semibold text-xl cursor-pointer"
 							/>
 						</div>
 						{/*reversing change  */}
 						<div className="bg-[#131324] py-2 px-4 rounded-md max-sm:py-1 max-sm:px-2 flex justify-center items-center">
-							<GrRevert
+							<IoArrowBackSharp
 								onClick={() => {
 									pageRefresh();
 								}}
-								className="text-slate-200 font-semibold text-xl cursor-pointer"
+								className="text-[#dce6ee] font-semibold text-xl cursor-pointer"
 							/>
 						</div>
 					</div>
 				</div>
 
 				{/* second block  */}
-				<div className="w-[50%] h-[60vh]  flex justify-center bg-[#6a6ab9] items-start flex-col gap-8 pl-8 max-sm:w-[80vw] max-sm:items-center max-sm:p-0 max-sm:gap-6">
+				<div className="w-[50%] h-[60vh]  flex justify-center bg-[#dce6ee] items-start flex-col gap-8 pl-8 max-sm:w-[80vw] max-sm:items-center max-sm:p-0 max-sm:gap-5 max-sm:h-[38vh]">
 					{/* 1 heading */}
-					<div className="text-2xl font-bold text-[#d8ecfc] max-sm:hidden ">
+					<div className="text-2xl font-bold text-[#131324] max-sm:hidden ">
 						<h3>Edit Your Profile</h3>
 					</div>
 
 					{/*2nd email  */}
-					<div className="flex justify-start items-center  gap-3 w-full max-sm:justify-center">
-						<h3 className=" p-3 w-[50%] h-[5vh] outline-dashed justify-start flex items-center line-through max-sm:w-[60%]">
+					<div className="flex justify-start items-center  gap-3 w-full max-sm:justify-center ">
+						<h3 className=" p-3 w-[50%] h-[5vh] outline-dashed justify-start flex items-center line-through max-sm:w-[60%] overflow-hidden">
 							{user?.email}
 						</h3>
 						<MdEmail className="text-lg" />
@@ -147,7 +147,7 @@ const ProfilePage = () => {
 						{/*todo joined-at */}
 
 						<p className="text-[#131324] text-md font-semibold">
-							<span className="text-[#d8ecfc] text-md font-bold">
+							<span className="text-[#6a6ab9] text-lg font-bold">
 								JoinedAt:
 							</span>
 							{"  "}
@@ -155,7 +155,7 @@ const ProfilePage = () => {
 						</p>
 						<button
 							type="submit"
-							className="py-2 px-8 bg-[#131324] text-[#d8ecfc] text-lg font-semibold rounded-lg max-sm:px-4 max-sm:py-1 max-sm:text-md"
+							className="py-2 px-8 bg-[#131324] text-[#dce6ee] text-lg font-semibold rounded-lg max-sm:px-4 max-sm:py-1 max-sm:text-md"
 						>
 							Save Changes
 						</button>

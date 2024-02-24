@@ -16,6 +16,11 @@ export const POST = async (req) => {
 			text,
 		});
 
+		const newMessage = await Message.findById(newMsg._id).populate({
+			path: "sender",
+			model: User,
+		});
+
 		const updateChat = await Chat.findByIdAndUpdate(
 			chatId,
 			{
@@ -27,10 +32,6 @@ export const POST = async (req) => {
 			.populate({
 				path: "messages",
 				model: Message,
-				populate: {
-					path: "sender",
-					model: User,
-				},
 			})
 			.populate({
 				path: "members",
@@ -41,7 +42,21 @@ export const POST = async (req) => {
 		//triggering pusher event named new-message through channel chatId and sending newMsg which is response of the api call
 		await pusherServer.trigger(chatId, "new-message", newMsg);
 
-		return new Response(JSON.stringify(newMsg), { status: 201 });
+		// triggering pusher event to update lastmessage
+		const lastMessage = updateChat.messages[updateChat.messages.length - 1];
+
+		updateChat.members.forEach(async (member) => {
+			try {
+				await pusherServer.trigger(member._id.toString(), "updated-chat", {
+					id: chatId,
+					messages: [lastMessage],
+				});
+			} catch (err) {
+				console.log(err);
+			}
+		});
+
+		return new Response(JSON.stringify(newMessage), { status: 201 });
 	} catch (error) {
 		return new Response("Failed to create a message", { status: 500 });
 	}

@@ -1,11 +1,11 @@
 import { format } from "date-fns";
 import React from "react";
 
-const MessageBox = ({ key, message, currentUser }) => {
+const MessageBox = ({ index, message, currentUser }) => {
 	return message?.sender === currentUser._id ? (
-		<div className="flex justify-end items-center gap-1" key={key}>
+		<div className="flex justify-end items-center gap-1" key={index}>
 			{message?.text ? (
-				<p className="rounded-xl bg-[#131324] text-[#d8ecfc] text-md font-semibold py-2 px-4 max-w-[55vw] max-sm:text-sm max-sm:font-normal max-sm:max-w-[75vw]">
+				<p className="rounded-xl bg-[#131324] text-[#dce6ee] text-md font-semibold py-2 px-4 max-w-[55vw] max-sm:text-sm max-sm:font-normal max-sm:max-w-[75vw]">
 					{message?.text}
 				</p>
 			) : (
@@ -19,7 +19,7 @@ const MessageBox = ({ key, message, currentUser }) => {
 			</p>
 		</div>
 	) : (
-		<div className="flex items-center gap-1 " key={key}>
+		<div className="flex items-center gap-1 " key={index}>
 			{message?.text ? (
 				<p className="rounded-xl bg-[#6a6ab9] text-slate-900 text-md font-semibold py-2 px-4 max-w-[55vw]  max-sm:text-sm max-sm:font-normal max-sm:max-w-[75vw]">
 					{message?.text}
