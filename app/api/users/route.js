@@ -3,6 +3,7 @@
 import User from "@/models/User";
 import { connectDB } from "@/mongodb";
 
+export const revalidate = 1;
 export const GET = async () => {
 	try {
 		await connectDB();
