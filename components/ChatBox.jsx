@@ -12,8 +12,6 @@ const Contact = ({ chat, index, currentUser, chatId }) => {
 		chat?.messages?.length > 0 && chat?.messages[chat?.messages.length - 1];
 	const seen = lastMessage?.isSeen;
 
-	console.log("Mast", lastMessage.sender, currentUser._id, lastMessage.text);
-
 	const data = otherMember[0]?.username;
 	let username = "";
 	if (data) {

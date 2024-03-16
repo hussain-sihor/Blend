@@ -4,6 +4,7 @@ import Message from "@/models/Message";
 import User from "@/models/User";
 import { connectDB } from "@/mongodb";
 
+export const dynamic = "force-dynamic";
 export const POST = async (req) => {
 	try {
 		await connectDB();
