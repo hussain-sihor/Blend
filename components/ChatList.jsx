@@ -31,11 +31,9 @@ const ChatList = ({ chatId }) => {
 		//   getting user based on if searched or normally all users
 		let Users;
 		if (search !== "") {
-			Users = await axios.get("/api/searchContact/${search}", {
-				cache: "no-store",
-			});
+			Users = await axios.get("/api/searchContact/${search}");
 		} else {
-			Users = await axios.get("/api/users", { cache: "no-store" });
+			Users = await axios.get("/api/users");
 		}
 		if (Users.status == 201) {
 			const data = await Users.data;
@@ -43,9 +41,7 @@ const ChatList = ({ chatId }) => {
 			setContacts(data.filter((contact) => contact._id !== currentUser._id));
 		}
 		//   getting chats of currentUser
-		const Chats = await axios.get(`/api/users/${currentUser._id}`, {
-			cache: "no-store",
-		});
+		const Chats = await axios.get(`/api/users/${currentUser._id}`);
 		setChats(Chats.data);
 	};
 

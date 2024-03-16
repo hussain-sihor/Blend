@@ -3,8 +3,8 @@
 import User from "@/models/User";
 import { connectDB } from "@/mongodb";
 
-export const revalidate = 1;
-export const GET = async () => {
+export const dynamic = "force-dynamic";
+export const GET = async (req) => {
 	try {
 		await connectDB();
 
