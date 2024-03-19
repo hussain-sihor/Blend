@@ -41,14 +41,14 @@ export const POST = async (req) => {
 			.exec();
 
 		//triggering pusher event named new-message through channel chatId and sending newMsg which is response of the api call
-		pusherServer.trigger(chatId, "new-message", newMsg);
+		await pusherServer.trigger(chatId, "new-message", newMsg);
 
 		// triggering pusher event to update lastmessage
 		const lastMessage = updateChat.messages[updateChat.messages.length - 1];
 
 		updateChat.members.forEach(async (member) => {
 			try {
-				pusherServer.trigger(member._id.toString(), "updated-chat", {
+				await pusherServer.trigger(member._id.toString(), "updated-chat", {
 					id: chatId,
 					messages: [lastMessage],
 				});
