@@ -89,8 +89,8 @@ const ChatScreen = ({ chatId }) => {
 		pusherClient.bind("new-message", handleNewMessage);
 
 		return () => {
-			pusherClient.unsubscribe(chatId),
-				pusherClient.unbind("new-message", handleNewMessage);
+			pusherClient.unsubscribe(chatId);
+			// pusherClient.unbind("new-message", handleNewMessage);
 		};
 	}, [chatId]);
 

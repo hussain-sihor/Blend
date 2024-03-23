@@ -71,7 +71,7 @@ const ChatList = ({ chatId }) => {
 
 			return () => {
 				pusherClient.unsubscribe(currentUser._id);
-				pusherClient.unbind("updated-chat", handleChatUpdate);
+				// pusherClient.unbind("updated-chat", handleChatUpdaZte);
 			};
 		}
 	}, [currentUser]);
