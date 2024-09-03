@@ -1,7 +1,7 @@
 # Blend Chat App
 
 Welcome to Blend Chat App! This is a modern and versatile chat application that aims to provide a seamless communication experience. Whether you're looking to connect with friends, colleagues, or family, Blend Chat App has got you covered.
-This project leverages the power of ### Next.js for server-side rendering and a seamless user experience, ### Tailwind CSS for a sleek and responsive design, ### MongoDB as the database for storing and managing chat data, and ### Pusher for real-time messaging capabilities.
+This project leverages the power of **Next.js** for server-side rendering and a seamless user experience, **Tailwind CSS** for a sleek and responsive design, **MongoDB** as the database for storing and managing chat data, and **Pusher** for real-time messaging capabilities.
 
 ## Features
 
