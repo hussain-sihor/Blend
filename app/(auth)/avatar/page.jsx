@@ -45,11 +45,7 @@ const profilePage = () => {
 		}
 	};
 	useEffect(() => {
-		// if user visits again
-		if (user?.avatar) {
-			router.push("/chats");
-			return;
-		}
+	
 		const getImages = async () => {
 			const arr = [];
 			for(let i=0 ; i<4 ; i++){
