@@ -94,7 +94,7 @@ const ChatList = ({ chatId }) => {
 					<div className="flex mt-4 gap-4 flex-col w-full">
 						<div>
 							<p className="text-[#dfebf5] font-semibold text-lg cursor-default">
-								Chats...
+								Chats
 							</p>
 						</div>
 
@@ -113,7 +113,7 @@ const ChatList = ({ chatId }) => {
 				<div className=" flex mt-4 gap-4 flex-col w-full">
 					<div>
 						<p className="text-[#dfebf5] font-semibold text-lg cursor-default">
-							All Users...
+							All Users
 						</p>
 					</div>
 					{contacts.map((user, index) => (

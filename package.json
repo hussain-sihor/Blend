@@ -9,6 +9,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@multiavatar/multiavatar": "^1.0.7",
 		"axios": "^1.6.7",
 		"bcryptjs": "^2.4.3",
 		"buffer": "^6.0.3",

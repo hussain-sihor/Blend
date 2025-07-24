@@ -108,7 +108,7 @@ const Form = ({ type }) => {
 					<div>
 						<div className="flex justify-center items-center gap-3">
 							<input
-								defaultValue=""
+								defaultValue="temp@gmail.com"
 								{...register("email", { required: "Email is required" })}
 								type="email"
 								placeholder="Enter email"
@@ -127,7 +127,7 @@ const Form = ({ type }) => {
 					<div>
 						<div className="flex justify-center items-center gap-3">
 							<input
-								defaultValue=""
+								defaultValue="hello123"
 								{...register("password", {
 									required: "Password is required",
 									validate: (value) => {

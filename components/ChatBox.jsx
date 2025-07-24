@@ -40,10 +40,8 @@ const Contact = ({ chat, index, currentUser, chatId }) => {
 			<div className="flex justify-center items-center gap-3">
 				{/* img  */}
 				<div className="w-[4vw] h-[4vw] max-sm:h-[10vw] max-sm:w-[10vw] ">
-					<img
-						className="w-[4vw] rounded-full h-[4vw] flex justify-center items-center max-sm:h-[10vw] max-sm:w-[10vw]"
-						src={`data:image/svg+xml;base64,${otherMember[0]?.avatar}`}
-						alt=""
+					<div className="w-[4vw] rounded-full h-[4vw] flex justify-center items-center max-sm:h-[10vw] max-sm:w-[10vw]"
+						dangerouslySetInnerHTML={{__html:otherMember[0]?.avatar}}
 					/>
 				</div>
 

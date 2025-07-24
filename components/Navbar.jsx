@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
@@ -30,9 +30,7 @@ const Navbar = () => {
 			<div className="flex justify-center items-center gap-7 max-sm:gap-3">
 				<div className="">
 					<Link href={"/profile"}>
-						<img
-							src={`data:image/svg+xml;base64,${avatar}`}
-							className="w-[3vw] rounded-full h-[3vw] flex justify-center items-center max-sm:w-[8vw] max-sm:h-[8vw]"
+						<div className="w-[3vw] rounded-full h-[3vw] flex justify-center items-center max-sm:w-[8vw] max-sm:h-[8vw]" dangerouslySetInnerHTML={{__html:avatar}}
 						/>
 					</Link>
 				</div>

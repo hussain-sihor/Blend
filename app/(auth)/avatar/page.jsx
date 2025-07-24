@@ -5,6 +5,9 @@ import { Buffer } from "buffer";
 import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import multiavatar from "@multiavatar/multiavatar";
+
+
 
 const profilePage = () => {
 	const router = useRouter();
@@ -23,8 +26,7 @@ const profilePage = () => {
 	const user = session?.user;
 	const username = user?.username.toUpperCase();
 
-	// any unique numbers after this api will generate avatars
-	const api = "https://api.multiavatar.com";
+
 
 	const setProfile = async () => {
 		if (isSelected === undefined) {
@@ -49,17 +51,14 @@ const profilePage = () => {
 			return;
 		}
 		const getImages = async () => {
-			const data = [];
-			//needed 4 avatars to display
-			for (let i = 0; i < 4; i++) {
-				let image = await axios.get(
-					`${api}/${Math.round(Math.random() * 1000)}`
-				);
-				//to store img temporally
-				const buffer = new Buffer(image.data);
-				data.push(buffer.toString("base64"));
+			const arr = [];
+			for(let i=0 ; i<4 ; i++){
+				let str =  Math.random().toString(36).substring(2, 10);
+				let image = multiavatar(str);
+				arr.push(image);
 			}
-			setAvatars(data);
+			setAvatars(arr);
+			// console.log(arr);
 		};
 		getImages();
 	}, []);
@@ -74,15 +73,19 @@ const profilePage = () => {
 				</div>
 				<div className="flex gap-[2vw] max-sm:gap-3">
 					{/* displaying avatars  */}
-					{avatars.map((avatar, index) => {
+						{avatars.map((avatar, index) => {
 						return (
 							<div
-								className=" w-[10vw] h-[10vw] flex justify-center items-center max-sm:w-[17vw] max-sm:h-[17vw] "
-								key={index}
+								className={` w-[10vw] h-[10vw] flex justify-center items-center max-sm:w-[17vw] max-sm:h-[17vw] border-[6px] border-slate-950 rounded-full shadow-lg shadow-[#131324] border-opacity-5 ${isSelected === index ?  "w-[10vw] h-[10vw] max-sm:w-[17vw] max-sm:h-[17vw]"
+											: "w-[9vw] h-[9vw] max-sm:w-[15vw] max-sm:h-[15vw]"}`}
+									onClick={() => {
+										setIsSelected(index);
+									}}
+								key={index} dangerouslySetInnerHTML={{__html:avatar}}
 							>
-								<img
+								{/* <img
 									//by default to show avatars
-									src={`data:image/svg+xml;base64,${avatar}`}
+									src= {avatar}
 									alt="avatar"
 									onClick={() => {
 										setIsSelected(index);
@@ -93,10 +96,11 @@ const profilePage = () => {
 											? "w-[10vw] h-[10vw] max-sm:w-[17vw] max-sm:h-[17vw]"
 											: "w-[9vw] h-[9vw] max-sm:w-[15vw] max-sm:h-[15vw]"
 									}`}
-								/>
+								/> */}
 							</div>
 						);
 					})}
+				
 				</div>
 				<button
 					onClick={setProfile}

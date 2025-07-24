@@ -11,16 +11,15 @@ import { Buffer } from "buffer";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { format } from "date-fns";
+import multiavatar from "@multiavatar/multiavatar";
 
 const ProfilePage = () => {
 	const router = useRouter();
 	const { data: session } = useSession();
 	const user = session?.user;
 	const [currentAvatar, setCurrentAvatar] = useState();
-	if (!user) {
-		return;
-	}
-	const time = format(new Date(user?.createdAt), "dMMM-y");
+
+	const time = format( Date(user?.createdAt), "dMMM-y");
 	const {
 		register,
 		handleSubmit,
@@ -40,13 +39,10 @@ const ProfilePage = () => {
 	}, [user]);
 
 	const changeAvatar = async () => {
-		let image = await axios.get(
-			`https://api.multiavatar.com/${Math.round(Math.random() * 1000)}`
-		);
-		//to store img temporally
-		const buffer = new Buffer(image.data);
-		const data = buffer.toString("base64");
-		setCurrentAvatar(data);
+		
+			let str =  Math.random().toString(36).substring(2, 10);
+			let image = multiavatar(str);
+		setCurrentAvatar(image);
 	};
 
 	const pageRefresh = () => {
@@ -75,9 +71,7 @@ const ProfilePage = () => {
 						<h3>Edit Your Profile</h3>
 					</div>
 					<div>
-						<img
-							src={`data:image/svg+xml;base64,${currentAvatar}`}
-							className="w-[25vh] rounded-full shadow-lg shadow-slate-800 border-[8px] border-[#dce6ee] border-opacity-70 max-sm:w-[25vw] max-sm:border-4"
+						<div className="w-[25vh] rounded-full shadow-lg shadow-slate-800 border-[8px] border-[#dce6ee] border-opacity-70 max-sm:w-[25vw] max-sm:border-4" dangerouslySetInnerHTML={{__html:currentAvatar}}
 						/>
 					</div>
 					{/* new avatar  */}

@@ -113,9 +113,8 @@ const ChatScreen = ({ chatId }) => {
 						}}
 					/>
 					<div className="w-[3vw] h-[3vw] max-sm:h-[6vw] max-sm:w-[6vw]">
-						<img
-							className="w-[3vw] rounded-full h-[3vw] flex justify-center items-center max-sm:h-[6vw] max-sm:w-[6vw] "
-							src={`data:image/svg+xml;base64,${otherMember[0]?.avatar}`}
+						<div className="w-[3vw] rounded-full h-[3vw] flex justify-center items-center max-sm:h-[6vw] max-sm:w-[6vw] "
+							dangerouslySetInnerHTML={{__html:otherMember[0]?.avatar}}
 						/>
 					</div>
 					<h3 className="font-bold text-lg text-[#dce6ee] cursor-default max-sm:text-md">
